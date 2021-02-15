@@ -1,13 +1,45 @@
 # sam-app-docker
 
+
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
 
 - function - Code for the application's Lambda function and Project Dockerfile.
-- events - Invocation events that you can use to invoke the function.
-- tests - Unit tests for the application code. 
+- function/events - Invocation events that you can use to invoke the function.
+- function/tests - Unit tests for the application code. 
 - template.yaml - A template that defines the application's AWS resources.
 
 The application uses several AWS resources, including Lambda functions and an API Gateway API. These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code.
+
+## TL;DR
+
+You should install `aws-sam-cli` through your package manager and have Docker installed (and accessible). Run
+the following commands to verify these dependencies. These commands should _NOT_ return any errors:
+
+```
+% which sam
+% which docker
+% docker ps
+```
+
+You can read the original documentation below, but to get started quickly, run the following from the repo root:
+
+```
+% make init
+```
+
+To see additional commands, run:
+
+```
+% make
+```
+
+There are _two_ Makefiles:
+
+- The one in the project root configures/runs SAM
+- The one in the function root configures your python environment
+
+We assume that this repo is cloned as a starting project. If you need to add more functions, simply copy the 
+`function` directory and rename.
 
 ## Deploy the sample application
 
